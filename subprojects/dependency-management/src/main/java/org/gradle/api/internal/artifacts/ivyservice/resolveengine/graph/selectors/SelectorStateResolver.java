@@ -158,7 +158,7 @@ public class SelectorStateResolver<T extends ComponentResolutionState> {
             return;
         }
 
-        results.replaceExistingResolutionsWithBetterResult(result);
+        results.replaceExistingResolutionsWithBetterResult(result, selector.isFromLock());
         results.register(selector, result);
     }
 
@@ -184,7 +184,7 @@ public class SelectorStateResolver<T extends ComponentResolutionState> {
             }
 
             for (ComponentIdResolveResult preferResult : preferResults) {
-                if (results.replaceExistingResolutionsWithBetterResult(preferResult)) {
+                if (results.replaceExistingResolutionsWithBetterResult(preferResult, false)) {
                     break;
                 }
             }

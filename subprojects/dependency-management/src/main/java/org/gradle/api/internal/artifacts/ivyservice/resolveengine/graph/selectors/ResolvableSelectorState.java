@@ -54,4 +54,6 @@ public interface ResolvableSelectorState {
 
     boolean isForce();
 
+    boolean isFromLock();
+
 }
